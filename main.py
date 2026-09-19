@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import ImageTk, Image
 from classes import Photo, QRC
-import qrcode
 from tkinter import filedialog
 
 
@@ -14,7 +13,9 @@ root.geometry("1200x800")
 root.maxsize(1200, 800)
 root.config(bg="#95989c")
 root.title("QRCode Generator")
-root.iconbitmap("./images/icoqrlogo.ico")
+icon_image = PhotoImage("./pngqrlogo.png")
+root.iconphoto(True, icon_image)
+#root.iconbitmap("./images/icoqrlogo.ico")
 qrcodeLogo = Photo("./images/qrlogo.png", (405, 405)).imageResize()
 
 # Heading Frame
@@ -106,7 +107,7 @@ def saveImage():
     file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png"), ("JPEG files", "*.jpg"), ("All files", "*.*")])
     if file_path:
         try:
-            img = Image.open("C:/ProgramData/QRC/newqrc.png")
+            img = Image.open("./QRC/newqrc.png")
             img.save(file_path)
             resetData()
         except:

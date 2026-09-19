@@ -26,26 +26,26 @@ class QRC:
         self.body = body
     
     def newEmailQRCode(self):
-        folder_name = r"C:\ProgramData\QRC"
+        folder_name = r"./QRC"
         if not os.path.exists(folder_name):
             os.mkdir(folder_name)
 
         img = qrcode.make(f"mailto:{self.email}?subject={self.subject}&body={self.body}")
-        img.save("C:/ProgramData/QRC/newqrc.png")
+        img.save("./QRC/newqrc.png")
         global newImage
-        newImage = Photo("C:/ProgramData/QRC/newqrc.png", (400, 400)).imageResize()
+        newImage = Photo("./QRC/newqrc.png", (400, 400)).imageResize()
         return newImage
         
     @staticmethod    
     def newURLQRCode(url):
-        folder_name = r"C:\ProgramData\QRC"
+        folder_name = r"./QRC"
         if not os.path.exists(folder_name):
             os.mkdir(folder_name)
 
         img = qrcode.make(f"{url}")
-        img.save("C:/ProgramData/QRC/newqrc.png")
+        img.save("./QRC/newqrc.png")
         global newImage
-        newImage = Photo("C:/ProgramData/QRC/newqrc.png", (400, 400)).imageResize()
+        newImage = Photo("./QRC/newqrc.png", (400, 400)).imageResize()
         return newImage
 
         

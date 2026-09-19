@@ -15,3 +15,8 @@ pip Uninstall -r requirements.txt
 
 Py to Exe:
 pyinstaller --onedir --noconsole --icon icoqrlogo.ico main.py
+
+Troubleshoot some hidden files at the time I ran pyinstaller in ubuntu.
+pyinstaller --onefile --hidden-import="PIL._imagingtk" --hidden-import="PIL._tkinter_finder" myscript.py
+
+
